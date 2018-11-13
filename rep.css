@@ -1,0 +1,17 @@
+img{
+    height: 100px;
+    width: 100px;
+}
+
+div.test{
+    display: inline-block;
+    width: 200px;
+    border: 1px solid blue;  
+}
+
+div#text{
+    width: 300px;
+}
+p{
+    text-align: left;
+}
