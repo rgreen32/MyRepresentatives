@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import './rep.css';
 import 'tachyons';
 // import 'bootstrap';
 
@@ -12,16 +11,17 @@ class DisplayRepInfo extends Component{
          var htmlBlocks = this.props.officialInfo.officials.map(
              official =>{
                  let img;
-                 if(!official.photoUrl){
-                    img = "ghost_person_200x200_v1.png"
+                 if(official.photoUrl=== undefined){
+                    img = "no-image.png"
                  }else{
+                     console.log(img)
                      img = official.photoUrl
                  }
                  
                  return(
                      
-                     <div class="">
-                         <img src={img}></img>
+                     <div class="tc">
+                         <img class="h5 w5"src={img}></img>
                          <h1 class="">{official.name}</h1>
                          <h3>Party: {official.party}</h3>
                          <h3>Phone Number: {official.phones}</h3>
