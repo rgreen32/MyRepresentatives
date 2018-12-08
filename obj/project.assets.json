@@ -11501,23 +11501,23 @@
     ]
   },
   "packageFolders": {
-    "/home/student/.nuget/packages/": {},
+    "/home/joey/.nuget/packages/": {},
     "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/student/MyRepresentatives/prototype3/prototype3.csproj",
+      "projectUniqueName": "/home/joey/dev/MyRepresentativesRay/prototype3.csproj",
       "projectName": "prototype3",
-      "projectPath": "/home/student/MyRepresentatives/prototype3/prototype3.csproj",
-      "packagesPath": "/home/student/.nuget/packages/",
-      "outputPath": "/home/student/MyRepresentatives/prototype3/obj/",
+      "projectPath": "/home/joey/dev/MyRepresentativesRay/prototype3.csproj",
+      "packagesPath": "/home/joey/.nuget/packages/",
+      "outputPath": "/home/joey/dev/MyRepresentativesRay/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/home/student/.nuget/NuGet/NuGet.Config"
+        "/home/joey/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
