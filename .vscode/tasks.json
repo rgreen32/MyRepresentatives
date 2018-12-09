@@ -2,12 +2,36 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "build-web",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
                 "${workspaceFolder}/src/MyRepresentatives.Web/MyRepresentatives.Web.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build-build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/build/MyRepresentatives.Build/MyRepresentatives.Build.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build-build-and-build-web",
+            "dependsOn": [
+                "build-build"
+            ],
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "run",
+                "--project",
+                "${workspaceFolder}/build/MyRepresentatives.Build"
             ],
             "problemMatcher": "$msCompile"
         }
