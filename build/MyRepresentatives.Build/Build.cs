@@ -38,7 +38,9 @@ class Build : NukeBuild {
         .DependsOn (Restore)
         .Executes (() => {
             NpmBuild ();
-            DotNetBuild (SourceDirectory);
+            DotNetPublish(configurator => {
+                return configurator.SetWorkingDirectory(SourceDirectory);
+            });
         });
 
     private void NpmBuild () {
@@ -60,7 +62,7 @@ class Build : NukeBuild {
 
     private AbsolutePath getBinDir () {
         //todo: adjust for Release
-        var binDir = SourceDirectory / "bin" / "Debug" / "netcoreapp2.1";
+        var binDir = SourceDirectory / "bin" / "Debug" / "netcoreapp2.1" / "publish";
         return binDir;
     }
 

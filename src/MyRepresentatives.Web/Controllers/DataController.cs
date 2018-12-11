@@ -13,6 +13,7 @@ using Newtonsoft.Json.Linq;
 
 namespace MyRepresentatives.Controllers {
     [Route ("api/[controller]")]
+    [ApiController]
     public class DataController : Controller {
         private readonly IRepresentativesInfoService _repsInfoService;
         private readonly INewsService _newsService;

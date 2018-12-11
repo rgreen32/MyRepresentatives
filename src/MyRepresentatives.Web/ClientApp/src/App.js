@@ -10,7 +10,7 @@ export default class App extends Component {
 
   getRepInfo = (event) =>{
       var params = {address:this.state.address}
-      var url = new URL("https://localhost:5001/api/Data/Representatives")
+      var url = new URL("api/Data/Representatives")
 
       url.search = new URLSearchParams(params)
 
