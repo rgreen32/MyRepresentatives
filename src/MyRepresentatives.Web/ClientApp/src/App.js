@@ -3,50 +3,47 @@ import DisplayRepInfo from './DisplayRepInfo';
 import 'tachyons'
 
 export default class App extends Component {
-  constructor(props){
-      super(props);
-      this.state ={info:[-1], address:""}
-  }
+    constructor(props) {
+        super(props);
+        this.state = { info: [-1], address: "" }
+    }
 
-  getRepInfo = (event) =>{
-      var params = {address:this.state.address}
-      var url = new URL("api/Data/Representatives")
+    getRepInfo = (event) => {
+        var params = { address: this.state.address }
+        var url = new URL(window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + '/api/Data/Representatives');
 
-      url.search = new URLSearchParams(params)
+        url.search = new URLSearchParams(params)
 
-      fetch(url,{headers:{
-          'Content-Type': 'application/json'
-      }}).then(data=>data.json())
-      .then(response =>this.setState({info:response}))
+        fetch(url, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(data => data.json())
+            .then(response => this.setState({ info: response }))
 
-      event.preventDefault();
-      event.target.reset();
-  }
-  updateAddress = (event) =>{
-      this.setState({address: event.target.value})
-  }
+        event.preventDefault();
+        event.target.reset();
+    }
 
-  render(){
-      if(this.state.info[0] === -1){
-        return(
-          
-            <div align="center" class="">
-              <div id="text"><p>Welcome to MyRepresentatives! 
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
-                  </div>
-                <form id="input" onSubmit={this.getRepInfo}>
-                    <input type="text" placeholder="address" name="address" onChange={this.updateAddress}></input>
-                </form>
-                
-                
-                
-            </div>
-        )
+    updateAddress = (event) => {
+        this.setState({ address: event.target.value })
+    }
 
-      }else{
-          return(<div><DisplayRepInfo officialInfo={this.state.info}/></div>)
-      }
-
-  }
+    render() {
+        if (this.state.info[0] === -1) {
+            return (
+                <div align="center" class="">
+                    <div id="text"><p>Welcome to MyRepresentatives!
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+                    </div>
+                    <form id="input" onSubmit={this.getRepInfo}>
+                        <input type="text" placeholder="address" name="address" onChange={this.updateAddress}></input>
+                    </form>
+                </div>
+            )
+        } else {
+            return (<div><DisplayRepInfo officialInfo={this.state.info} /></div>)
+        }
+    }
 }

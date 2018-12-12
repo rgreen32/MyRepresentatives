@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
@@ -25,20 +26,24 @@ namespace MyRepresentatives.Web {
                 configuration.RootPath = "ClientApp/build";
             });
 
-            services.AddMyRepresentativesCore();
-            services.AddMyRepresentativesServices();
+            services.AddMyRepresentativesCore ();
+            services.AddMyRepresentativesServices ();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure (IApplicationBuilder app, IHostingEnvironment env) {
+            app.UseForwardedHeaders (new ForwardedHeadersOptions {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+
             if (env.IsDevelopment ()) {
                 app.UseDeveloperExceptionPage ();
             } else {
                 app.UseExceptionHandler ("/Error");
-                app.UseHsts ();
+                // app.UseHsts ();
             }
 
-            app.UseHttpsRedirection ();
+            // app.UseHttpsRedirection ();
             app.UseStaticFiles ();
             app.UseSpaStaticFiles ();
 
