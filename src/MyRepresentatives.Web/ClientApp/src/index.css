@@ -4,3 +4,18 @@
         padding-top: 50px;
     }
 }
+
+.container {
+    margin-left: 20%;
+    margin-right:20%;
+}
+
+.submitButton {
+    height: 30px;
+    cursor: pointer;
+    border: 0;
+}
+
+.myRepsSquare{
+    height: 75px;
+}

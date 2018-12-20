@@ -32,15 +32,29 @@ export default class App extends Component {
     render() {
         if (this.state.info[0] === -1) {
             return (
-                <div align="center" class="">
-                    <div id="text"><p>Welcome to MyRepresentatives!
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+                <div class="container">
+                    <h1>Publishers & Developers <br />
+                        Enable your users to find and give feedback to in just a few easy steps!</h1>
+
+                    <ul>
+                        <li>Step 1: Insert a MyRepresentatives button on your site.</li>
+                        <li>Step 2: Link to (MyRepresentatives URL).</li>
+                        <li>Step 3: Celebrate because you're done!</li>
+                    </ul>
+                    <div>Below are sample buttons you can embed on your site.</div>
+
+                    <div>
+                        <img src="assets/MyReps button.jpeg" />
+                        <img src="assets/MyReps square button.jpeg" class="myRepsSquare"/>
+                        <p>Or enter your address below to find and give feedback to your elected officials</p>
+                        <form id="input" onSubmit={this.getRepInfo}>
+                            <input type="text" placeholder="address" name="address" onChange={this.updateAddress}></input>
+                            <br/>
+                            <input type="submit" value="Submit" class="submitButton" src="assets/SubmitButton.png"></input>
+                        </form>
                     </div>
-                    <form id="input" onSubmit={this.getRepInfo}>
-                        <input type="text" placeholder="address" name="address" onChange={this.updateAddress}></input>
-                    </form>
                 </div>
+
             )
         } else {
             return (<div><DisplayRepInfo officialInfo={this.state.info} /></div>)
