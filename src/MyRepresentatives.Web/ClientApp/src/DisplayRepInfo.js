@@ -20,12 +20,12 @@ class DisplayRepInfo extends Component{
                     
                     if(officialKeyArray !== undefined){
                        
-                    officialKeyArray.forEach(officialKey => {
+                    var blocks = officialKeyArray.map(officialKey => {
                         var official = allOfficials[officialKey]
                         //console.log(official)
                         return(
                         
-                            <div class="tc">
+                            <div class="ma5 tc">
                                 
                                 <h1 class="">{official.name}</h1>
                                 <h3>District: {this.props.officialInfo.divisions[key].name}</h3>
@@ -36,8 +36,7 @@ class DisplayRepInfo extends Component{
                         )
                     });
                     console.log(blocks)
-                }else{
-                    return <h1>Not here</h1>
+                    return blocks
                 }
                     
                     
