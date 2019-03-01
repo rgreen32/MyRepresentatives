@@ -43,7 +43,7 @@ export default class App extends Component {
 
             case "zipcode":
                 this.setState({zipcode: value})
-                break;
+                break; 
         }
         
     }
