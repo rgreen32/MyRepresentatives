@@ -26,7 +26,7 @@ namespace MyRepresentatives.Controllers {
         [HttpGet ("[action]")]
         [ProducesResponseType(typeof(JObject), (int) HttpStatusCode.OK)]
         public async Task<IActionResult> Representatives ([FromQuery] string address) {
-            var json = await _repsInfoService.GetReprestatives (address);
+            var json = await _repsInfoService.GetReprestatives (address); 
             return Ok(json);
         }
 
